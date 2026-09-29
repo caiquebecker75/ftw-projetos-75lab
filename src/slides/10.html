@@ -1,42 +1,41 @@
-<section class="slide" data-part="Investimento">
+<section class="slide" data-part="Cronograma">
   <div class="hd">
-    <span class="eyebrow" data-a><i>(09)</i> Cenários de investimento</span>
-    <h2 class="sm" data-a style="--d:1">Escolha <em>até onde ir</em>. E pare quando quiser.</h2>
+    <span class="eyebrow" data-a><i>(09)</i> Cronograma</span>
+    <h2 class="sm" data-a style="--d:1">Sete meses, <em>sete entregas</em> com data.</h2>
   </div>
   <div class="mid" style="gap:16px">
-    <div class="cens" data-a style="--d:2" id="cens">
-      <div class="cen" data-cen="0">
-        <div class="top"><b>Destravar</b></div>
-        <div class="body">
-          <div class="pv tnum">R$ 42.300<small>3 parcelas de R$ 14.100</small></div>
-          <ul><li>Natal FTW</li><li>Loja modelo e collabs</li><li>Resgate dos incentivos</li></ul>
-          <div class="foot"><span>Onda 1</span><span>3 meses</span></div>
-        </div>
+    <div class="gantt" data-a style="--d:2">
+      <div class="ghead">
+        <span>Projeto</span><span>Out 26</span><span>Nov 26</span><span>Dez 26</span><span>Jan 27</span><span>Fev 27</span><span>Mar 27</span><span>Abr 27</span>
       </div>
-      <div class="cen sel" data-cen="1">
-        <div class="top"><b>Construir</b><i>Recomendado</i></div>
-        <div class="body">
-          <div class="pv tnum">R$ 89.500<small>5 parcelas de R$ 17.900 · economia de R$ 9.200</small></div>
-          <ul><li>Tudo da onda 1</li><li>Sistema de PDV FTW</li><li>Motor de JBP</li></ul>
-          <div class="foot"><span>Ondas 1 e 2</span><span>5 meses</span></div>
-        </div>
-      </div>
-      <div class="cen" data-cen="2">
-        <div class="top"><b>Sistema completo</b></div>
-        <div class="body">
-          <div class="pv tnum">R$ 125.300<small>7 parcelas de R$ 17.900 · economia de R$ 13.100</small></div>
-          <ul><li>Tudo das ondas 1 e 2</li><li>Programa de incentivo</li><li>Academia FTW de canal</li></ul>
-          <div class="foot"><span>Ondas 1, 2 e 3</span><span>7 meses</span></div>
-        </div>
-      </div>
+      <div class="grow"><div class="rlbl"><span>Onda 1</span><b>Natal FTW</b></div>
+        <div class="tracks"><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          <div class="gbar" style="grid-column:1/2;--d:0">4 semanas</div></div></div>
+      <div class="grow"><div class="rlbl"><span>Onda 1</span><b>Loja modelo e collabs</b></div>
+        <div class="tracks"><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          <div class="gbar" style="grid-column:1/3;--d:1">5 semanas</div></div></div>
+      <div class="grow"><div class="rlbl"><span>Onda 1</span><b>Resgate dos incentivos</b></div>
+        <div class="tracks"><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          <div class="gbar" style="grid-column:1/2;--d:2">3 semanas</div></div></div>
+      <div class="grow"><div class="rlbl"><span>Onda 2</span><b>Sistema de PDV FTW</b></div>
+        <div class="tracks"><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          <div class="gbar o2" style="grid-column:2/5;--d:3">10 semanas</div></div></div>
+      <div class="grow"><div class="rlbl"><span>Onda 2</span><b>Motor de JBP</b></div>
+        <div class="tracks"><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          <div class="gbar o2" style="grid-column:3/6;--d:4">8 semanas</div></div></div>
+      <div class="grow"><div class="rlbl"><span>Onda 3</span><b>Programa de incentivo</b></div>
+        <div class="tracks"><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          <div class="gbar o3" style="grid-column:5/7;--d:5">7 semanas</div></div></div>
+      <div class="grow"><div class="rlbl"><span>Onda 3</span><b>Academia de canal</b></div>
+        <div class="tracks"><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          <div class="gbar o3" style="grid-column:6/8;--d:6">6 semanas</div></div></div>
     </div>
-    <div class="cenres" data-a style="--d:3">
-      <div><div class="k">Cenário escolhido</div><div class="v" id="rNome">Construir</div></div>
-      <div><div class="k">Desembolso por mês</div><div class="v" id="rMes"><em>R$ 17.900</em></div></div>
-      <div><div class="k">Projetos entregues</div><div class="v tnum" id="rProj">5</div></div>
-      <div><div class="k">Comparação com o fee de 6 meses</div><div class="v" id="rFee">R$ 59.900 a menos</div></div>
-      <div style="margin-left:auto"><button class="btn pri" data-go="10">Como começamos <svg><use href="#ar"/></svg></button></div>
+    <div class="legend2" data-a style="--d:7">
+      <span><i style="background:var(--red)"></i>Onda 1 · Destravar</span>
+      <span><i style="background:var(--ink)"></i>Onda 2 · Padronizar</span>
+      <span><i style="background:var(--paper);border:2px solid var(--red)"></i>Onda 3 · Escalar</span>
+      <span style="margin-left:auto">Início contado a partir do aceite e do briefing completo</span>
     </div>
   </div>
-  <p class="note" data-a>Pagamento avulso por projeto: 40% no aceite e 60% na entrega. Em pacote, parcelas mensais iguais durante a vigência. Valores sugeridos nesta proposta, não representam contratação aprovada. Validade de 15 dias a partir de 25/09/2026.</p>
+  <p class="note" data-a>Projetos da mesma onda correm em paralelo, com no máximo dois em desenvolvimento ao mesmo tempo. Prazos de produção e licenciamento são externos e não entram nestes ciclos.</p>
 </section>

@@ -18,7 +18,7 @@ function fit(){var s=Math.min(innerWidth/1600,innerHeight/900);if(!(s>0))s=1;
 addEventListener("resize",fit);fit();
 
 var slides=$$(".slide"),N=slides.length,i=0,busy=false;
-var TITLES=["Projetos que viram ativo","Contexto: quatro canais","Por que projeto e não fee","Três ondas",
+var TITLES=["Projetos que viram ativo","Contexto: quatro canais","Vitrine virtual do portfólio","Por que projeto e não fee","Três ondas",
             "Onda 1: destravar","Onda 2: padronizar","Onda 3: escalar","O que fica com a FTW",
             "Cronograma","Cenários de investimento","Para avançar"];
 
@@ -28,7 +28,7 @@ function chrome(){
   $("#prog").style.width=((i+1)/N*100)+"%";
   $("#count").innerHTML="<b>"+String(i+1).padStart(2,"0")+"</b> / "+N;
   var p=slides[i].getAttribute("data-part")||"";
-  var n=i===0?"":(i<=2?"Parte 01":(i<=6?"Parte 02":(i<=8?"Parte 03":"Parte 04")));
+  var n=i===0?"":(i<=3?"Parte 01":(i<=7?"Parte 02":(i<=9?"Parte 03":"Parte 04")));
   $("#partlbl").innerHTML=n?("<i>"+n+"</i> · "+p):("<i>"+p+"</i>");
   $$("#mlist button").forEach(function(b,k){b.classList.toggle("cur",k===i)});
   $("#hint").style.opacity=i===0?1:0;
@@ -41,6 +41,10 @@ function go(n){
   setTimeout(function(){busy=false},390);
 }
 function enter(sec){
+  // o iframe da vitrine so carrega quando a tela abre: sao 15 MB de modelos
+  $$("iframe[data-src]",sec).forEach(function(f){
+    f.src=f.dataset.src; f.removeAttribute("data-src");
+  });
   $$("[data-cu]",sec).forEach(function(el){
     var end=+el.dataset.cu,t0=null;
     function step(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/900,1),e=1-Math.pow(1-p,3);

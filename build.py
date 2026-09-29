@@ -61,11 +61,11 @@ def main():
     head = head.replace("</style>", comp + "\n</style>")
     assert ".ficha{" in head, "comp.css nao entrou no <style>"
 
-    slides = "".join((S / "slides" / f"{n:02d}.html").read_text() + "\n" for n in range(1, 12))
+    slides = "".join((S / "slides" / f"{n:02d}.html").read_text() + "\n" for n in range(1, 13))
     html = head + CHROME.replace("__SLIDES__", slides) + \
            "\n<script>\n" + (S / "app.js").read_text() + "\n</script>\n"
 
-    for token, fname in [("__LOGO75__", "logo75.txt"), ("__TOTEM__", "totem.txt"), ("__LOJA__", "loja.txt")]:
+    for token, fname in [("__LOGO75__", "logo75.txt"), ("__TOTEM__", "totem.txt"), ("__LOJA__", "loja.txt"), ("__QR__", "qr-vitrine.txt")]:
         html = html.replace(token, (S / "assets" / fname).read_text().strip())
 
     html = merge_dup_style(html)
@@ -75,7 +75,7 @@ def main():
     dash = html.count("—") + html.count("–")
     assert dash == 0, f"{dash} travessao(oes) no HTML final"
     n = len(re.findall(r'<section class="slide\b', html))
-    assert n == 11, f"esperava 11 telas, achei {n}"
+    assert n == 12, f"esperava 12 telas, achei {n}"
 
     (R / "index.html").write_text(html)
     print(f"index.html: {len(html)//1024} KB · {n} telas · 0 travessoes")
