@@ -170,10 +170,27 @@
 .vitr{position:relative;border:2px solid var(--ink);background:var(--paper2);flex:1;min-height:0;overflow:clip}
 .vitr iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;z-index:2}
 .vitr-off{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:10px;text-align:center;padding:24px;z-index:1}
+  gap:10px;text-align:center;padding:24px;z-index:0}
 .vitr-off p{font-size:14px;line-height:1.45;color:var(--soft);max-width:44ch}
 .vitr-pe{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;margin-top:12px}
 .vitr-qr{display:flex;align-items:center;gap:12px}
 .vitr-qr img{width:70px;height:70px;display:block;border:2px solid var(--ink)}
 .vitr-qr span{font-family:var(--fmono);font-weight:700;font-size:9.5px;letter-spacing:.12em;
   text-transform:uppercase;color:var(--soft);line-height:1.6}
+
+/* --- 08 vitrine: visor grande, celular e tela cheia --- */
+.vitr-top{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.vitr-top .steps3 button{padding:11px 18px}
+#vitrBox{margin-bottom:6px}
+.vitr-ctrl{display:flex;align-items:center;gap:10px}
+.vitr-ctrl .btn{padding:11px 18px}
+.vitr-tela{position:absolute;inset:0;z-index:2;display:flex;justify-content:center;background:var(--paper2)}
+/* o .vitr iframe original era absolute inset:0; aqui quem posiciona e o flex */
+.vitr-tela iframe{position:relative;inset:auto;width:100%;height:100%;border:0;display:block;background:#fff;
+  transition:width .3s var(--ease)}
+.vitr.fone .vitr-tela iframe{width:420px;box-shadow:0 0 0 2px var(--ink)}
+.vitr-x{position:absolute;top:12px;right:12px;z-index:5;font-family:var(--fmono);font-weight:700;font-size:11px;
+  letter-spacing:.14em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:9px 14px}
+.vitr-x:hover{background:var(--red)}
+.vitr.cheia{position:fixed;inset:0;z-index:200;border-width:0}
+.vitr.cheia .vitr-x{top:66px}   /* abaixo da barra de cima do deck, senao encosta no Indice */

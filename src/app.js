@@ -18,9 +18,9 @@ function fit(){var s=Math.min(innerWidth/1600,innerHeight/900);if(!(s>0))s=1;
 addEventListener("resize",fit);fit();
 
 var slides=$$(".slide"),N=slides.length,i=0,busy=false;
-var TITLES=["Projetos que viram ativo","Contexto: quatro canais","Vitrine virtual na página do varejista","Por que projeto e não fee","Três ondas",
-            "Onda 1: destravar","Onda 2: padronizar","Onda 3: escalar","O que fica com a FTW",
-            "Cronograma","Cenários de investimento","Para avançar"];
+var TITLES=["Projetos que viram ativo","Contexto: quatro canais","Por que projeto e não fee","Três ondas",
+            "Onda 1: destravar","Onda 2: padronizar","Onda 3: escalar","Vitrine virtual: um ativo funcionando",
+            "O que fica com a FTW","Cronograma","Cenários de investimento","Para avançar"];
 
 function chrome(){
   var dark=slides[i].classList.contains("dark");
@@ -28,7 +28,7 @@ function chrome(){
   $("#prog").style.width=((i+1)/N*100)+"%";
   $("#count").innerHTML="<b>"+String(i+1).padStart(2,"0")+"</b> / "+N;
   var p=slides[i].getAttribute("data-part")||"";
-  var n=i===0?"":(i<=3?"Parte 01":(i<=7?"Parte 02":(i<=9?"Parte 03":"Parte 04")));
+  var n=i===0?"":(i<=2?"Parte 01":(i<=6?"Parte 02":(i<=9?"Parte 03":"Parte 04")));
   $("#partlbl").innerHTML=n?("<i>"+n+"</i> · "+p):("<i>"+p+"</i>");
   $$("#mlist button").forEach(function(b,k){b.classList.toggle("cur",k===i)});
   $("#hint").style.opacity=i===0?1:0;
@@ -50,6 +50,27 @@ function enter(sec){
     function step(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/900,1),e=1-Math.pow(1-p,3);
       el.textContent=Math.round(end*e); if(p<1) requestAnimationFrame(step);}
     el.textContent="0"; requestAnimationFrame(step);
+  });
+}
+
+/* tela 08: vitrine, computador ou celular e tela cheia */
+var vitrBox = $("#vitrBox"), vitrSair = $("#vitrSair"), vitrModo = $("#vitrModo"), vitrCheia = $("#vitrCheia");
+if (vitrBox) {
+  vitrModo.addEventListener("click", function (e) {
+    var b = e.target.closest("button[data-larg]"); if (!b) return;
+    $$("button", this).forEach(function (x) { x.classList.remove("sel"); }); b.classList.add("sel");
+    vitrBox.classList.toggle("fone", b.dataset.larg !== "full");
+  });
+  function cheia(liga) {
+    // position:fixed dentro do palco transformado cobre o palco, que e o que queremos
+    vitrBox.classList.toggle("cheia", liga);
+    vitrSair.hidden = !liga;
+    vitrCheia.textContent = liga ? "Sair" : "Tela cheia";
+  }
+  vitrCheia.addEventListener("click", function () { cheia(!vitrBox.classList.contains("cheia")); });
+  vitrSair.addEventListener("click", function () { cheia(false); });
+  addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && vitrBox.classList.contains("cheia")) cheia(false);
   });
 }
 
@@ -122,5 +143,8 @@ addEventListener("touchend",function(e){var dx=e.changedTouches[0].clientX-sx,dy
   if(Math.abs(dx)>54&&Math.abs(dx)>Math.abs(dy)) go(dx<0?i+1:i-1);},{passive:true});
 
 slides[0].classList.add("on"); chrome(); enter(slides[0]);
-if(location.hash){var hh=parseInt(location.hash.slice(1),10); if(hh>0&&hh<=N) go(hh-1);}
+function porHash(){var h=parseInt(location.hash.slice(1),10); if(h>0&&h<=N) go(h-1);}
+// o hash pode chegar depois do load (link colado, volta do navegador, pane de preview)
+addEventListener("hashchange",porHash);
+if(location.hash) porHash();
 })();
