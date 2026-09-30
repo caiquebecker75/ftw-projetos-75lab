@@ -65,7 +65,7 @@ def main():
     html = head + CHROME.replace("__SLIDES__", slides) + \
            "\n<script>\n" + (S / "app.js").read_text() + "\n</script>\n"
 
-    for token, fname in [("__LOGO75__", "logo75.txt"), ("__TOTEM__", "totem.txt"), ("__LOJA__", "loja.txt"), ("__QR__", "qr-vitrine.txt")]:
+    for token, fname in [("__LOGO75__", "logo75.txt"), ("__TOTEM__", "totem.txt"), ("__LOJA__", "loja.txt"), ("__QR__", "qr-vitrine.txt"), ("__QRVIT__", "qr-vitrine-ec.txt")]:
         html = html.replace(token, (S / "assets" / fname).read_text().strip())
 
     html = merge_dup_style(html)

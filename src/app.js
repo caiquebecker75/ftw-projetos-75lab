@@ -18,7 +18,7 @@ function fit(){var s=Math.min(innerWidth/1600,innerHeight/900);if(!(s>0))s=1;
 addEventListener("resize",fit);fit();
 
 var slides=$$(".slide"),N=slides.length,i=0,busy=false;
-var TITLES=["Projetos que viram ativo","Contexto: quatro canais","Vitrine virtual do portfólio","Por que projeto e não fee","Três ondas",
+var TITLES=["Projetos que viram ativo","Contexto: quatro canais","Vitrine virtual na página do varejista","Por que projeto e não fee","Três ondas",
             "Onda 1: destravar","Onda 2: padronizar","Onda 3: escalar","O que fica com a FTW",
             "Cronograma","Cenários de investimento","Para avançar"];
 
